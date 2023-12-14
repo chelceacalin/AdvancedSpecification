@@ -23,6 +23,8 @@ public class FilterSpecification<T> {
 					case LIKE ->
 							criteriaBuilder.like(criteriaBuilder.lower(root.get(requestDto.getColumn())), "%" + requestDto.getValue().toLowerCase() + "%");
 					case IN -> root.get(requestDto.getColumn()).in( requestDto.getValue().split(","));
+					case GREATER_THAN->criteriaBuilder.greaterThan(root.get(requestDto.getColumn()),requestDto.getValue());
+					case LESS_THAN->criteriaBuilder.lessThan(root.get(requestDto.getColumn()),requestDto.getValue());
 					default -> criteriaBuilder.equal(root.get(requestDto.getColumn()), requestDto.getValue());
 				});
 
