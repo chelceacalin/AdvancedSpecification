@@ -20,11 +20,11 @@ public class FilterSpecification<T> {
 			for (SearchRequestDto requestDto : searchRequestDtos) {
 
 				predicates.add(switch (requestDto.getOperation()) {
-					case LIKE ->
-							criteriaBuilder.like(criteriaBuilder.lower(root.get(requestDto.getColumn())), "%" + requestDto.getValue().toLowerCase() + "%");
+					case LIKE -> criteriaBuilder.like(criteriaBuilder.lower(root.get(requestDto.getColumn())), "%" + requestDto.getValue().toLowerCase() + "%");
 					case IN -> root.get(requestDto.getColumn()).in( requestDto.getValue().split(","));
 					case GREATER_THAN->criteriaBuilder.greaterThan(root.get(requestDto.getColumn()),requestDto.getValue());
 					case LESS_THAN->criteriaBuilder.lessThan(root.get(requestDto.getColumn()),requestDto.getValue());
+					case BETWEEN -> criteriaBuilder.between(root.get(requestDto.getColumn()), requestDto.getValue().split(",")[0], requestDto.getValue().split(",")[1]);
 					default -> criteriaBuilder.equal(root.get(requestDto.getColumn()), requestDto.getValue());
 				});
 
