@@ -10,6 +10,6 @@ public class SearchRequestDto {
 	Operation operation = Operation.EQUAL;
 
 	public enum Operation {
-		EQUAL, LIKE
+		EQUAL, LIKE, IN
 	}
 }
