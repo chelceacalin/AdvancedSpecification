@@ -23,11 +23,6 @@ public class StudentController {
 		return studentRepository.findByName(name);
 	}
 
-	@GetMapping("/city/{city}")
-	public List<Student> getStudentsByCity(@PathVariable(name = "city", required = false) String name) {
-		return studentRepository.findByAddressCity(name);
-	}
-
 	@PostMapping("/specification")
 	public List<Student> getStudents(@RequestBody RequestDto requestDto) {
 		Specification<Student> specification=filterSpecification.getSearchSpecification(requestDto.getSearchRequestDto(),requestDto.getGlobalOperator());
