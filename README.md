@@ -22,7 +22,8 @@ You can query it using POST using:
 </pre>
 Or query it using GET ( take that json, encode it and then send the request:
 
-![image](https://github.com/chelceacalin/AdvancedSpecification/assets/76866499/142e6d3c-8306-4f4a-9de2-947ea9ef1654)
+![image](https://github.com/chelceacalin/AdvancedSpecification/assets/76866499/320ab7ec-6e20-4dab-bc61-296495d8da30)
+
 
 
 
